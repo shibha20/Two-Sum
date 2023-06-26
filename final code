@@ -1,0 +1,22 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+
+        prev_element = {}
+        final_index = []
+
+        for i in range(len(nums)):
+            diff = target - nums[i]
+            if diff in prev_element:
+                final_index.append(prev_element[diff])
+                final_index.append(i)
+                break
+            prev_element[nums[i]] = i
+
+        return final_index
+                
+                
